@@ -1,0 +1,14 @@
+opencv-python>=4.10.0.84
+numpy>=1.26.4
+PyAutoGUI>=0.9.54
+PyGetWindow>=0.0.9
+requests>=2.32.3
+torch
+pillow>=10.4.0
+loguru>=0.7.2
+ultralytics>=8.2.57
+psutil>=6.0.0
+matplotlib>=3.9.1
+tqdm>=4.66.4
+PyYAML>=6.0.1
+scipy>=1.14.0
