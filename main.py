@@ -89,12 +89,11 @@ if __name__ == '__main__':
                 x, y, width, height = x * zoom, y * zoom, width * zoom, height * zoom
                 if x < 0 or y < 0:
                     continue
-                # print(x, y, width, height)
                 screenshot = ImageGrab.grab(bbox=(x, y, x + width, y + height))
                 image_src = cv.cvtColor(np.array(screenshot), cv.COLOR_RGB2BGR)
                 size_x, size_y = image_src.shape[1], image_src.shape[0]
                 image_det = cv.resize(image_src, (640, 320))
-                result = model.predict(source=image_det, imgsz=640, conf=0.82, save=False)
+                result = model.predict(source=image_det, imgsz=640, conf=0.75, save=False)
 
 
             @logger.catch
@@ -103,9 +102,7 @@ if __name__ == '__main__':
                 global image_src
                 global line_rect
                 raw_boxes = result[0].boxes
-                # boxes = sorted(raw_boxes.xywhn, key=lambda x: x[0])
                 raw_boxes = sorted(raw_boxes, key=lambda x: x.xywhn[0][0])
-                # raw_boxes = sorted(raw_boxes, key=lambda x: x.score, reverse=True)
                 items = {}
                 for box in raw_boxes:
                     class_id = int(box.cls[0])
@@ -150,10 +147,9 @@ if __name__ == '__main__':
                     log.info("Blue note 与 line 重叠，执行某个按键操作")
                     if time.time() - key_press_time > 0.2:
                         key_press_time = time.time()
-                        # 1846 1064 1924 1140
                         color = image_det[int(320 * 0.93), int(630 * 0.96)]
                         # log.debug(str(color))
-                        if color[0] < 100:
+                        if color[0] < 130:
                             log.info("Press d")
                             press("d")
                         else:
