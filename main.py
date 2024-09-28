@@ -77,6 +77,7 @@ if not window:
 window = window[0]
 
 device = torch.device("cuda:0")
+# device = torch.device("cpu")
 model.to(device)
 line_rect = None
 key_press_time = 0
