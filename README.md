@@ -31,8 +31,8 @@
     pip install -r requirements.txt
     ```
 
-   > torch 预发布版本，支持 CUDA 12.4，可安装完成后卸载 torch 相关组件后安装
-   > ```shell
+    > torch 预发布版本，支持 CUDA 12.4，可安装完成后卸载 torch 相关组件后安装
+    > ```shell
     > pip install --pre torch==2.5.0.dev20240713+cu124 torchvision --index-url https://download.pytorch.org/whl/nightly/cu124
     > ```
 
@@ -56,10 +56,12 @@
 
    等，只需要传入的参数有`1`个即可。
 
+   debug控制台服务端在另一个项目[debug_server.py](https://github.com/MeiHuaGuangShuo/php_debug_console/blob/main/debug_server.py)中
+
 ## 注意事项
 
-游戏窗口最好16:9，否则可能识别不准确。
-使用[sizer](https://www.brianapps.net/sizer)可一键调节
+游戏窗口最好16:9，尽管程序会自动调节窗口大小，但是还是建议尽量接近。
+使用[sizer](https://www.brianapps.net/sizer)可一键调节（记得使用管理员权限运行）
 
 # 键盘输入方式
 
